@@ -1,8 +1,11 @@
 import express from 'express';
 import client from './db/mongodb.js';
+import cors from 'cors';
 
 const app = express();
 const port = 8000;
+
+app.use(cors());
 
 async function run() {
     try {
@@ -12,7 +15,7 @@ async function run() {
         console.log("DB connected and verified ");
 
         app.get('/', (req, res) => {
-            res.send("Server working ");
+            res.json({"name": "John Doe"})
         });
 
         app.listen(port, () => {
