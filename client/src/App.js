@@ -46,7 +46,17 @@ function App() {
   }, [next]);
 
   return (
+    
     <div className="app-root">
+      <div className="balls-container">
+        {[...Array(15)].map((_, i) => (
+          <div key={i} className="ball" style={{
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${8 + Math.random() * 4}s`
+          }} />
+        ))}
+      </div>
       {isLoading ? (
         <div className="loading">Loading questions...</div>
       ) : error ? (
@@ -63,12 +73,14 @@ function App() {
           <div className="answer-area">
             {flag ? <Card ans={ans} /> : <p className="hint">Reveal answer when ready.</p>}
           </div>
-
+          
           <div className="progress-track">
             <div className="progress-fill" style={{ width: `${(currentIndex + 1) / (qa.length || 1) * 100}%` }} />
           </div>
+          
         </section>
       )}
+      
     </div>
   );
 }
