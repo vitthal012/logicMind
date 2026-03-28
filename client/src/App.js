@@ -14,7 +14,9 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8000/qa")
+        
+    const apiUrl = process.env.SERVER_API_URL || 'http://localhost:8000';
+    fetch(`${apiUrl}/qa`)
       .then(res => res.json())
       .then(data => {
         setqa(data.qa || []);
@@ -51,7 +53,7 @@ function App() {
         <div className="error">Error: {error}</div>
       ) : (
         <section className="quiz-card">
-          <h1 className="question-text">Question: {ques}</h1>
+          <h1 className="question-text" dangerouslySetInnerHTML={{__html: ques}}></h1>
 
           <div className="button-group">
             <Button handleNext={handleNext} value="Next" />
