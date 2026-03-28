@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-        
     const apiUrl = process.env.SERVER_API_URL || 'http://localhost:8000';
     fetch(`${apiUrl}/qa`)
       .then(res => res.json())
