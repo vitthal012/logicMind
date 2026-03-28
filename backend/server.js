@@ -11,9 +11,7 @@ async function start(){
 try {
 
     await connectclus();
-
     app.get('/qa',async (req, res) => {
-
         console.log("retreiving data from db");
         let data=await db.collection("questions").find().toArray();
         console.log("retreived");
