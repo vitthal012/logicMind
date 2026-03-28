@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     const apiUrl = process.env.REACT_APP_SERVER_API_URL || 'http://localhost:8000';
+    console.log(process.env.REACT_APP_SERVER_API_URL);
     fetch(`${apiUrl}/qa`)
       .then(res => res.json())
       .then(data => {

@@ -20,7 +20,7 @@ function Card({ans}){
 
     return (
         <div className="card-details">
-          {(sec>5) ? <Answer ans={ans}/> :<> <p className="thinking">Think a little more!</p> <p className="timer">Timer: {min}:{sec.toString().padStart(2,'0')} / 2</p></>}
+          {(min>1) ? <Answer ans={ans}/> :<> <p className="thinking">Think a little more!</p> <p className="timer">Timer: {min}:{sec.toString().padStart(2,'0')} / 2</p></>}
          
         </div>
     );
